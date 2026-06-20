@@ -4,3 +4,6 @@ target/
 *.class
 allure-results/
 allure-report/
+.allure/
+evidence/
+*.pdf
