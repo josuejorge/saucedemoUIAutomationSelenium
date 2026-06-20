@@ -5,6 +5,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.HomePage;
 
 public class LoginTest extends BaseTest { 
 
@@ -56,5 +57,15 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
         Assert.assertTrue(loginPage.getErrorMessage().getText()
             .contains("Sorry, this user has been locked out"));
+
+    @Test
+    public void validarLogout() {
+        loginPage.login(VALID_USER, VALID_PASSWORD);
+        Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
+        HomePage homePage = new HomePage(driver);
+        homePage.logout();
+        Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
+        Assert.assertTrue(loginPage.getLoginButton().isDisplayed());
     }
+
 }
