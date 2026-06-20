@@ -33,7 +33,6 @@ public class LoginTest extends BaseTest {
     public void validarLoginComSucesso() {
         loginPage.login(VALID_USER, VALID_PASSWORD);
         Assert.assertTrue(driver.getCurrentUrl().contains("/inventory.html"));
-
     }
 
     @Test
@@ -42,5 +41,13 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
         Assert.assertTrue(loginPage.getErrorMessage().getText()
             .contains("Username and password do not match any user in this service"));
+
+    @Test
+    public void validarLoginComCamposVazios() {
+        loginPage.getLoginButton().click();
+        Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
+        Assert.assertTrue(loginPage.getErrorMessage().getText()
+            .contains("Username is required"));
+
     }
 }
