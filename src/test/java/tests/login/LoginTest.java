@@ -43,6 +43,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
         Assert.assertTrue(loginPage.getErrorMessage().getText()
             .contains("Username and password do not match any user in this service"));
+    }
 
     @Test
     public void validarLoginComCamposVazios() {
@@ -50,6 +51,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
         Assert.assertTrue(loginPage.getErrorMessage().getText()
             .contains("Username is required"));
+    }
 
     @Test
     public void validarLoginComUsuarioBloqueado() {
@@ -57,6 +59,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(loginPage.getErrorMessage().isDisplayed());
         Assert.assertTrue(loginPage.getErrorMessage().getText()
             .contains("Sorry, this user has been locked out"));
+    }
 
     @Test
     public void validarLogout() {
@@ -67,5 +70,10 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/");
         Assert.assertTrue(loginPage.getLoginButton().isDisplayed());
     }
+
+    @Test
+    public void validarAbrirNavegador() {
+        Assert.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"));
+    }   
 
 }
