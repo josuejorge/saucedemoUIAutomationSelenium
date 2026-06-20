@@ -24,4 +24,9 @@
             <class name="tests.cards.CardsTest"/>
         </classes>
     </test>
+    <test name="Accessibility Tests">
+        <classes>
+            <class name="tests.accessibility.AccessibilityTest"/>
+        </classes>
+    </test>
 </suite>

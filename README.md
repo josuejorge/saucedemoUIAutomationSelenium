@@ -216,6 +216,44 @@ mvn test && mvn allure:serve
 
 ---
 
+## Testes de Acessibilidade (WCAG)
+
+Os testes de acessibilidade usam **axe-core** (Deque Systems) para validar cada página contra os critérios **WCAG 2.1 AA** automaticamente.
+
+```bash
+mvn test -Dtest=AccessibilityTest
+```
+
+
+### Páginas analisadas
+
+| Página | Teste |
+|---|---|
+| Login | `validarAcessibilidadeLogin` |
+| Home / Inventário | `validarAcessibilidadeHome` |
+| Detalhe do Produto | `validarAcessibilidadeProduto` |
+| Carrinho | `validarAcessibilidadeCarrinho` |
+| Checkout | `validarAcessibilidadeCheckout` |
+
+### Severidade e comportamento
+
+| Impacto | Comportamento |
+|---|---|
+| `critical` / `serious` | Teste **falha** — violação WCAG bloqueante |
+| `moderate` / `minor` | Teste **passa** — violação logada como attachment no Allure |
+
+### O que é reportado no Allure
+
+Para cada página analisada, o relatório Allure exibe:
+- Nome da regra violada (ex: `color-contrast`, `image-alt`)
+- Impacto (`CRITICAL`, `SERIOUS`, `MODERATE`, `MINOR`)
+- Descrição da violação em inglês
+- Critérios WCAG violados (ex: `wcag2aa`, `wcag143`)
+- Link direto para a documentação da regra
+- HTML dos elementos afetados
+
+---
+
 ## Paralelismo
 
 A execução paralela é configurada no `testng.xml`:
