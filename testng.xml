@@ -6,4 +6,9 @@
             <class name="tests.login.LoginTest"/>
         </classes>
     </test>
+    <test name="Home Tests">
+        <classes>
+            <class name="tests.home.HomeTest"/>
+        </classes>
+    </test>
 </suite>
