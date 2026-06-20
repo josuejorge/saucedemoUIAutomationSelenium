@@ -16,4 +16,9 @@
             <class name="tests.cart.CartTest"/>
         </classes>
     </test>
+    <test name="Cards Tests">
+        <classes>
+            <class name="tests.cards.CardsTest"/>
+        </classes>
+    </test>
 </suite>

@@ -78,6 +78,11 @@ public class HomePage {
         wait.until(ExpectedConditions.elementToBeClickable(addToCartButtons)).click();
     }
 
+    public void removeFirstItemFromCart() {
+        By removeButtons = By.cssSelector("[data-test^='remove']");
+        wait.until(ExpectedConditions.elementToBeClickable(removeButtons)).click();
+    }
+
     public void selectSort(String value) {
         WebElement dropdown = wait.until(ExpectedConditions.visibilityOfElementLocated(sortDropdown));
         new Select(dropdown).selectByValue(value);
