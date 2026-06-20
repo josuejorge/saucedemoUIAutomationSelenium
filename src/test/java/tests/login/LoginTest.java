@@ -76,4 +76,9 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"));
     }   
 
+    @Test
+    public void validarAbrirNavegador() {
+        Assert.assertTrue(driver.getCurrentUrl().contains("saucedemo.com"));
+    }    
+
 }
